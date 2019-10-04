@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['title' => 'About'])
 
 @section('content')
 
@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md6">
 				<p class="alert alert-warning"><strong><i class="fas fa-exclamation-triangle"></i> This app has been built by <a href="https://twitter.com/etsmo">@etsmo</a> for learning purposes.</strong></p>
-				<p>Fell free to help to improve the <a href="">source code</a></p>
+				<p>Fell free to help to improve the <a href="https://github.com/jisDev21/laracarte-tdn">source code</a></p>
 
 				<hr>
 

@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Laracarte</title>
+
+	{{-- 1ere solution pour le titre dynamique:
+		on récupère la variable 'title' passée par la vue fille, si elle existe
+
+    		<title>{{ isset($title) ? $title . ' |' : '' }} Laracarte - List of artisans</title> 
+
+		 2eme solution:
+		on crée une fonction helpers qui va gérer ca.
+		ensuite il suffit d'appeler cette fonction en lui passant en paramètre soit un titre, 
+		s'il existe, soit rien.
+    --}}
+
+    <title>{{ page_title( $title ?? '') }}</title>
+
     {{-- font google Open Sans --}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 	{{-- CDN font awesome --}}
