@@ -13,6 +13,8 @@
 		on crée une fonction helpers qui va gérer ca.
 		ensuite il suffit d'appeler cette fonction en lui passant en paramètre soit un titre, 
 		s'il existe, soit rien.
+		c'est la syntaxe ?? qui permet de dire, s'il y a un titre, on le passe à la fonction "page_title"
+		sinon on lui passe une chaine de caractères vide
     --}}
 
     <title>{{ page_title( $title ?? '') }}</title>
@@ -45,6 +47,10 @@
 
 		footer {
 			margin: 4em 0;
+		}
+
+		.active {
+			background-color: #ccc;
 		}
 	</style>
 
