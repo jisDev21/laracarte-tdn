@@ -8,7 +8,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMessageCreated extends Mailable
+// ici, "implements ShouldQueue" est rajouté pour indiquer à notre appli d'utiliser les queues 
+// quand elle envoie des mails
+
+class ContactMessageCreated extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -60,6 +63,17 @@ class ContactMessageCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.messages.created');
+        /* ici on construit le mail avec, comme valeurs (adresse et nom) pour le from, les valeurs par defaut. Dans notre
+         * cas, l'adresse est "hello@laracarte.com" et le nom "Laracarte". 
+         * 
+         *    return $this->markdown('emails.messages.created');
+         *
+         * Si on veut queles informations de l'utilisateur
+         * apparaissent pour qu'on puisse faire un reply à son message, il faut préciser les valeurs du from
+         *
+         */ 
+        
+        return $this->from($this->msg->email, $this->msg->name)
+                    ->markdown('emails.messages.created');
     }
 }
